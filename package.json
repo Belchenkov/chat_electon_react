@@ -1,0 +1,17 @@
+{
+  "name": "chat_electron_react",
+  "version": "1.0.0",
+  "description": "Build a chat app with Electron & React JS. Utilize React JS + Firebase(DB) to create a fully native app",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Electron",
+    "React.js",
+    "Firebase",
+    "Chat"
+  ],
+  "author": "Aleksey Belchenkov",
+  "license": "ISC"
+}
