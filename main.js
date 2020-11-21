@@ -9,9 +9,10 @@ function createWindow() {
         backgroundColor: 'white',
         webPreferences: {
             modeIntegration: false,
-            worldSafeExecuteJavaScript: true,
-            contextIsolation: true
-        }
+            //worldSafeExecuteJavaScript: true,
+            //contextIsolation: true
+        },
+        preload: path.join(__dirname, 'preload.js')
     });
 
     win.loadFile('index.html');
