@@ -7,6 +7,9 @@ import {
 
 import Home from "./views/Home";
 import Navbar from "./components/Navbar";
+import Settings from "./views/Settings";
+import Register from "./views/Register";
+import Login from "./views/Login";
 
 const App = () => {
     return (
@@ -18,13 +21,13 @@ const App = () => {
                             <Home />
                         </Route>
                         <Route path="/settings">
-                            Settings
+                            <Settings />
                         </Route>
                         <Route path="/register">
-                            Register
+                            <Register />
                         </Route>
                         <Route path="/login">
-                            Login
+                            <Login />
                         </Route>
                     </Switch>
                 </div>
