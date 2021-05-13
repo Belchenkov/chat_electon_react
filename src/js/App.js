@@ -21,7 +21,7 @@ const App = () => {
                         <Route path="/" exact>
                             <Home />
                         </Route>
-                        <Route path="/chat">
+                        <Route path="/chat/:id">
                             <ChatView />
                         </Route>
                         <Route path="/settings">
