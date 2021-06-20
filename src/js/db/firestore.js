@@ -2,12 +2,12 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 
 const config = {
-    apiKey: "AIzaSyDCi5-xoBkBbaCOMNFKcuLKotdnRya5JDs",
-    authDomain: "chat-react-electron.firebaseapp.com",
-    projectId: "chat-react-electron",
-    storageBucket: "chat-react-electron.appspot.com",
-    messagingSenderId: "878973500978",
-    appId: "1:878973500978:web:4304ec13062c848311862b"
+    apiKey: process.env.FIREBASE_API_KEY,
+    authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.FIREBASE_PROJECT_ID,
+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDED_ID,
+    appId: process.env.FIREBASE_APP_ID
 };
 // Initialize Firebase
 export default firebase.initializeApp(config).firestore();
