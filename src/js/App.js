@@ -11,8 +11,7 @@ import Home from "./views/Home";
 import Navbar from "./components/Navbar";
 import ChatView from "./views/Chat";
 import Settings from "./views/Settings";
-import Register from "./views/Register";
-import Login from "./views/Login";
+import Welcome from "./views/Welcome";
 
 const store = configureStore();
 
@@ -24,6 +23,9 @@ const App = () => {
                 <div className='content-wrapper'>
                     <Switch>
                         <Route path="/" exact>
+                            <Welcome />
+                        </Route>
+                        <Route path="/home">
                             <Home />
                         </Route>
                         <Route path="/chat/:id">
@@ -31,12 +33,6 @@ const App = () => {
                         </Route>
                         <Route path="/settings">
                             <Settings />
-                        </Route>
-                        <Route path="/register">
-                            <Register />
-                        </Route>
-                        <Route path="/login">
-                            <Login />
                         </Route>
                     </Switch>
                 </div>
