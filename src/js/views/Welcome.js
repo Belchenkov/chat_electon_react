@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import LoginForm from "../components/LoginForm";
+import RegisterForm from "../components/RegisterForm";
 
 export default function Welcome() {
+    const [isLoginView, setIsLogin] = useState(true);
+    const optText = isLoginView ? ['Need an account?', 'Register'] : ['Already registered?', 'Login'];
+
     return (
         <div className="centered-view">
             <div className="centered-container">
-               <LoginForm />
-                <small className="form-text text-muted mt-2">Not registered yet?
+
+                { isLoginView ? <LoginForm /> : <RegisterForm /> }
+
+                <small className="form-text text-muted mt-2">{ optText[0] }
                     <span
-                        onClick={() => {}}
-                        className="btn-link ml-2">Register</span>
+                        onClick={() => setIsLogin(!isLoginView)}
+                        className="btn-link ml-2 cursor-pointer">{ optText[1] }</span>
                 </small>
             </div>
         </div>

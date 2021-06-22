@@ -34,6 +34,10 @@ html, body {
   height: 100%;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .content-wrapper {
   height: 100%;
   background-color: $gray-100;
@@ -515,3 +519,4 @@ ul {
     }
   }
 }
+
