@@ -1,11 +1,15 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+
+import { registerUser } from "../../actions/auth";
 
 export default function RegisterForm() {
     const { register, handleSubmit } = useForm();
+    const dispatch = useDispatch();
 
-    const onSubmit = data => {
-        alert(JSON.stringify(data));
+    const onSubmit = registerData => {
+        dispatch(registerUser(registerData));
     };
 
     return (
@@ -26,7 +30,7 @@ export default function RegisterForm() {
                         <div className="form-group">
                             <label htmlFor="username">Username</label>
                             <input
-                                {...register('username', { required: true })}
+                                {...register('username', { required: false })}
                                 type="text"
                                 name="username"
                                 className="form-control"
