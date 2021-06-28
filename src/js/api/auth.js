@@ -28,3 +28,13 @@ export const register = async ({email, password, username, avatar}) => {
         return Promise.reject(error.message);
     }
 };
+
+export const onAuthStateChanges = onAuth => {
+    try {
+        firebase
+            .auth()
+            .onAuthStateChanged(onAuth);
+    } catch (error) {
+        return Promise.reject(error.message);
+    }
+}
