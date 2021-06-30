@@ -27,33 +27,30 @@ const Navbar = () => {
                     </Link>
                 </div>
                 <div className="chat-navbar-inner-right">
-                    <span className="logged-in-user">Hi User</span>
-                    {/*<Link*/}
-                    {/*    to="/register"*/}
-                    {/*    onClick={() => {}}*/}
-                    {/*    className="btn btn-outline-info ml-2"*/}
-                    {/*>*/}
-                    {/*    <i className="fas fa-user-plus mr-2" />*/}
-                    {/*    Register*/}
-                    {/*</Link>*/}
-                    {!user &&
-                        <Link
-                            to="/"
-                            className="btn btn-outline-success ml-2"
-                        >
-                            <i className="fab fa-expeditedssl mr-2"/>
-                            Login
-                        </Link>
-                    }
-                    { user &&
-                        <button
-                            className="btn btn-outline-danger ml-2"
-                            onClick={() => dispatch(logout())}
-                        >
-                            <i className="fa fa-sign-out mr-2" />
-                            Logout
-                        </button>
-                    }
+                    {! user && (
+                        <>
+                            <Link
+                                to="/"
+                                className="btn btn-outline-success ml-2"
+                            >
+                                <i className="fab fa-expeditedssl mr-2"/>
+                                Login
+                            </Link>
+                        </>
+                    )}
+                    { user && (
+                        <>
+                            <img className="avatar mr-2" src={user.avatar} alt="Avatar"/>
+                            <span className="logged-in-user">Hi, { user.username }</span>
+                            <button
+                                className="btn btn-outline-danger ml-4"
+                                onClick={() => dispatch(logout())}
+                            >
+                                <i className="fa fa-sign-out mr-2" />
+                                Logout
+                            </button>
+                        </>
+                    )}
                 </div>
             </nav>
         </div>

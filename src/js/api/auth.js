@@ -10,7 +10,19 @@ const createUserProfile = userProfile => {
         .set(userProfile);
 };
 
-export const register = async ({email, password, username, avatar}) => {
+export const getUserProfile = async uid => {
+    try {
+        return db
+                .collection('profiles')
+                .doc(uid)
+                .get()
+                .then(snapshot => snapshot.data());
+    } catch (error) {
+        return Promise.reject(error.message);
+    }
+}
+
+export const register = async ({ email, password, username, avatar }) => {
     try {
         const { user } = await firebase.auth().createUserWithEmailAndPassword(email, password);
         const { uid } = user;
