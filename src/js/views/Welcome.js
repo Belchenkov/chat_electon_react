@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 
 import LoginForm from "../components/LoginForm";
 import RegisterForm from "../components/RegisterForm";
+import LoadingView from "../components/shared/LoadingView";
 
 export default function Welcome() {
     const [isLoginView, setIsLogin] = useState(true);
@@ -13,7 +14,7 @@ export default function Welcome() {
     const optText = isLoginView ? ['Need an account?', 'Register'] : ['Already registered?', 'Login'];
 
     if (isChecking) {
-        return <h1>Checking the state...</h1>
+        return <LoadingView />
     }
 
     if (user) {
