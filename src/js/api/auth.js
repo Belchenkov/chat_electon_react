@@ -28,6 +28,15 @@ export const register = async ({email, password, username, avatar}) => {
         return Promise.reject(error.message);
     }
 };
+export const login = async ({email, password }) => {
+    try {
+        await firebase.auth().signInWithEmailAndPassword(email, password);
+    } catch (error) {
+        return Promise.reject(error.message);
+    }
+};
+
+export const logout = () => firebase.auth().signOut();
 
 export const onAuthStateChanges = onAuth => {
     try {
