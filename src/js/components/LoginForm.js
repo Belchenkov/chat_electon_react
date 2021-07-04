@@ -3,16 +3,21 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 
 import { loginUser } from "../../actions/auth";
-
+import LoadingView from "./shared/LoadingView";
 
 export default function LoginForm() {
     const { register, handleSubmit } = useForm();
     const dispatch = useDispatch();
     const error = useSelector(({ auth }) => auth.login.error);
+    const isChecking = useSelector(({ auth }) => auth.isChecking);
 
     const onSubmit = data => {
       dispatch(loginUser(data));
     };
+
+    if (isChecking) {
+        return <LoadingView />
+    }
 
     return (
         <div className="centered-view">

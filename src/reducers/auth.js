@@ -7,7 +7,6 @@ function loginReducer(state = { error: null }, action) {
                 error: null
             };
         case 'AUTH_LOGIN_ERROR':
-            console.log(action.error, 'error');
             return {
                 error: action.error
             };

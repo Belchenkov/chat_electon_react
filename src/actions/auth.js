@@ -18,7 +18,6 @@ export const loginUser = formData => dispatch => {
         .login(formData)
         .then(_ => dispatch({type: 'AUTH_LOGIN_SUCCESS'}))
         .catch(error => {
-            console.log(error, 'error')
             dispatch({ type: 'AUTH_LOGIN_ERROR', error });
         });
 }
