@@ -8,7 +8,6 @@ const Navbar = () => {
     const history = useHistory();
     const dispatch = useDispatch();
     const user = useSelector(({ auth }) => auth.user);
-    const isChecking = useSelector(({ auth }) => auth.isChecking);
 
     return (
         <div className="chat-navbar">
