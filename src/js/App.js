@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
     HashRouter as Router,
     Switch,
-    Route
+    Route,
+    Redirect
 } from 'react-router-dom';
 
 import Home from "./views/Home";
@@ -15,6 +16,20 @@ import LoadingView from "./components/shared/LoadingView";
 import StoreProvider from "../store/StoreProvider";
 
 import { listenToAuthChanges } from "../actions/auth";
+
+const AuthRoute = ({ children, ...rest }) => {
+    const user = useSelector(({ auth }) => auth.user);
+    const onlyChild = React.Children.only(children);
+
+    return (
+        <Route
+            {...rest}
+            render={props => user
+                    ? React.cloneElement(onlyChild, {...rest, ...props})
+                    : <Redirect to="/" />}
+        />
+    )
+};
 
 const ContentWrapper = ({ children }) => (
     <div className="content-wrapper">{children}</div>
@@ -40,15 +55,15 @@ const ChatApp = () => {
                     <Route path="/" exact>
                         <Welcome />
                     </Route>
-                    <Route path="/home">
+                    <AuthRoute path="/home">
                         <Home />
-                    </Route>
-                    <Route path="/chat/:id">
+                    </AuthRoute>
+                    <AuthRoute path="/chat/:id">
                         <ChatView />
-                    </Route>
-                    <Route path="/settings">
+                    </AuthRoute>
+                    <AuthRoute path="/settings">
                         <Settings />
-                    </Route>
+                    </AuthRoute>
                 </Switch>
             </ContentWrapper>
         </Router>
