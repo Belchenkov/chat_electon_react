@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 
+import { withBaseLayout } from '../../layouts/Base';
 import JoinedChatsList from "../components/JoinedChatsList";
 import AvailableChatsList from "../components/AvailableChatsList";
 import ViewTitle from "../components/shared/ViewTitle";
@@ -25,8 +26,7 @@ const Home = () => {
                 <AvailableChatsList chats={chats} />
             </div>
         </div>
-
     );
 };
 
-export default Home;
+export default withBaseLayout(Home);
