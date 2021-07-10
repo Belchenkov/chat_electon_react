@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 
+import BaseLayout from '../../layouts/Base';
 import JoinedChatsList from "../components/JoinedChatsList";
 import AvailableChatsList from "../components/AvailableChatsList";
 import ViewTitle from "../components/shared/ViewTitle";
@@ -16,16 +17,17 @@ const Home = () => {
     }, [dispatch])
 
     return (
-        <div className="row no-gutters fh">
-            <div className="col-3 fh">
-                <JoinedChatsList chats={chats} />
+        <BaseLayout canGoBack>
+            <div className="row no-gutters fh">
+                <div className="col-3 fh">
+                    <JoinedChatsList chats={chats} />
+                </div>
+                <div className="col-9 fh">
+                    <ViewTitle text="Choose your channel" />
+                    <AvailableChatsList chats={chats} />
+                </div>
             </div>
-            <div className="col-9 fh">
-                <ViewTitle text="Choose your channel" />
-                <AvailableChatsList chats={chats} />
-            </div>
-        </div>
-
+        </BaseLayout>
     );
 };
 

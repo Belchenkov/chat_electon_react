@@ -1,11 +1,11 @@
 import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { logout } from "../../actions/auth";
+import BackButton from "./shared/BackButton";
 
-const Navbar = () => {
-    const history = useHistory();
+const Navbar = ({ canGoBack }) => {
     const dispatch = useDispatch();
     const user = useSelector(({ auth }) => auth.user);
 
@@ -13,13 +13,7 @@ const Navbar = () => {
         <div className="chat-navbar">
             <nav className="chat-navbar-inner">
                 <div className="chat-navbar-inner-left">
-                    <button
-                        onClick={() => history.goBack()}
-                        className="btn btn-sm btn-outline-primary"
-                    >
-                        <i className="far fa-arrow-alt-circle-left mr-2" />
-                        Back
-                    </button>
+                    { canGoBack && <BackButton /> }
                     <Link to="/settings" className="btn btn-outline-secondary ml-2">
                         <i className="fas fa-wrench mr-2" />
                         Settings

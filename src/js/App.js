@@ -8,7 +8,6 @@ import {
 } from 'react-router-dom';
 
 import Home from "./views/Home";
-import Navbar from "./components/Navbar";
 import ChatView from "./views/Chat";
 import Settings from "./views/Settings";
 import Welcome from "./views/Welcome";
@@ -49,7 +48,6 @@ const ChatApp = () => {
 
     return (
         <Router>
-            <Navbar />
             <ContentWrapper>
                 <Switch>
                     <Route path="/" exact>
