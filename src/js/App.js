@@ -15,6 +15,7 @@ import LoadingView from "./components/shared/LoadingView";
 import StoreProvider from "../store/StoreProvider";
 
 import { listenToAuthChanges } from "../actions/auth";
+import { listenToConnectionChanges } from "../actions/app";
 
 const AuthRoute = ({ children, ...rest }) => {
     const user = useSelector(({ auth }) => auth.user);
@@ -44,14 +45,11 @@ const ChatApp = () => {
 
     useEffect(() => {
         const unsubFromAuth = dispatch(listenToAuthChanges());
-
-        window.addEventListener('online', alertOnlineStatus);
-        window.addEventListener('offline', alertOnlineStatus);
+        const unsubFromConnection = dispatch(listenToConnectionChanges());
 
         return () => {
             unsubFromAuth();
-            window.removeEventListener('online', alertOnlineStatus);
-            window.removeEventListener('offline', alertOnlineStatus);
+            unsubFromConnection();
         };
     }, [dispatch]);
 
