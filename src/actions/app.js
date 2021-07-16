@@ -1,7 +1,6 @@
-const onStatusChange = dispatch => {
+const onStatusChange = dispatch => () => {
     const isOnline = navigator.onLine;
-
-    const action = navigator.onLine
+    const action = isOnline
         ? { type: 'APP_IS_ONLINE', isOnline }
         : { type: 'APP_IS_OFFLINE', isOnline };
 
