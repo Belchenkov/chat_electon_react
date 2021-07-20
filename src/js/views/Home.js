@@ -5,6 +5,7 @@ import { withBaseLayout } from '../../layouts/Base';
 import JoinedChatsList from "../components/JoinedChatsList";
 import AvailableChatsList from "../components/AvailableChatsList";
 import ViewTitle from "../components/shared/ViewTitle";
+import Notification from '../../utils/notifications';
 
 import { fetchChats } from "../../actions/chats";
 
@@ -13,6 +14,8 @@ const Home = () => {
     const chats = useSelector(({ chats }) => chats.items);
 
     useEffect(() => {
+        Notification.setup();
+
         dispatch(fetchChats());
     }, [dispatch])
 
