@@ -46,7 +46,7 @@ const ChatApp = () => {
         const unsubFromConnection = dispatch(listenToConnectionChanges());
 
         return () => {
-            unsubFromAuth();
+            //unsubFromAuth();
             unsubFromConnection();
         };
     }, [dispatch]);
