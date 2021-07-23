@@ -18,7 +18,7 @@ const JoinedChatsList = ({ chats }) => {
                             className="item"
                         >
                             <div className="item-status">
-                                <img src={chat.image} alt={chat.name} />
+                                <img className="sidebar-chat-img" src={chat.image} alt={chat.name} />
                                 <span className="status online" />
                             </div>
                             <p className="name-time">
