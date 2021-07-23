@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { withBaseLayout } from '../../layouts/Base';
@@ -25,7 +26,12 @@ const Home = () => {
                 <JoinedChatsList chats={chats} />
             </div>
             <div className="col-9 fh">
-                <ViewTitle text="Choose your channel" />
+                <ViewTitle text="Choose your channel">
+                    <Link className="btn btn-outline-success" to="/chat-create">
+                        <i className="fa fa-plus-circle mr-2" />
+                        New
+                    </Link>
+                </ViewTitle>
                 <AvailableChatsList chats={chats} />
             </div>
         </div>

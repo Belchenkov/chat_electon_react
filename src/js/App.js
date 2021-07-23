@@ -10,6 +10,7 @@ import {
 import Home from "./views/Home";
 import ChatView from "./views/Chat";
 import Settings from "./views/Settings";
+import ChatCreate from "./views/ChatCreate";
 import Welcome from "./views/Welcome";
 import LoadingView from "./components/shared/LoadingView";
 import StoreProvider from "../store/StoreProvider";
@@ -67,6 +68,9 @@ const ChatApp = () => {
                     </Route>
                     <AuthRoute path="/home">
                         <Home />
+                    </AuthRoute>
+                    <AuthRoute path="/chat-create">
+                        <ChatCreate />
                     </AuthRoute>
                     <AuthRoute path="/chat/:id">
                         <ChatView />
