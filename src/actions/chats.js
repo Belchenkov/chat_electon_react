@@ -6,14 +6,15 @@ export const fetchChats = () => dispatch =>
         .fetchChats()
         .then(chats => dispatch({ type: 'CHATS_FETCH_SUCCESS', chats }));
 
-export const createChat = (formData, userId) => dispatch => {
+export const createChat = (formData, userId) => async dispatch => {
     const newChat = { ...formData };
-    const useRef = db.doc(`profile/${userId}`);
+    newChat.admin = db.doc(`profiles/${userId}`);
 
-    newChat.admin = useRef;
-    newChat.joinedUsers = [useRef];
+    const chatId = await api.createChat(newChat);
+    dispatch({ type: 'CHATS_CREATE_SUCCESS' });
 
-    return api
-        .createChat(formData)
-        .then(_ => dispatch({ type: 'CHATS_CREATE_SUCCESS' }));
+    await api.joinChat(userId, chatId);
+    dispatch({ type: 'CHATS_JOIN_SUCCESS' });
+
+    return chatId;
 }
