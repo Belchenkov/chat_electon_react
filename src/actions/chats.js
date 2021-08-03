@@ -19,7 +19,6 @@ export const fetchChats = () => async (dispatch, getState) => {
         ...sortedChats
     });
 
-    console.log(sortedChats);
     return sortedChats;
 }
 
