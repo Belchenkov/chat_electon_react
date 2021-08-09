@@ -27,7 +27,7 @@ export const joinChat = (chat, uid) => async dispatch => {
     dispatch({ type: 'CHATS_JOIN_SUCCESS', chat });
 
     return chatId;
-}
+};
 
 export const createChat = (formData, userId) => async dispatch => {
     const newChat = { ...formData };
@@ -43,4 +43,13 @@ export const createChat = (formData, userId) => async dispatch => {
     });
 
     return chatId;
-}
+};
+
+export const subscribeToChat = chatId => dispatch => {
+    api.subscribeToChat(chatId, chat => {
+        dispatch({
+           type: 'CHATS_SET_ACTIVE_CHAT',
+           chat
+        });
+    });
+};
