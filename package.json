@@ -16,18 +16,18 @@
   "author": "Aleksey Belchenkov",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.12.3",
-    "dotenv-webpack": "^7.0.2",
-    "electron": "^10.1.5",
-    "electron-reload": "^1.5.0"
+    "@babel/core": "*",
+    "dotenv-webpack": "*",
+    "electron": "*",
+    "electron-reload": "*"
   },
   "dependencies": {
-    "@babel/preset-env": "^7.12.1",
-    "@babel/preset-react": "^7.12.5",
-    "@reduxjs/toolkit": "^1.6.1",
-    "babel-loader": "^8.2.1",
+    "@babel/preset-env": "*",
+    "@babel/preset-react": "*",
+    "@reduxjs/toolkit": "*",
+    "babel-loader": "*",
     "bootstrap": "^4.5.2",
-    "css-loader": "^5.0.1",
+    "css-loader": "*",
     "firebase": "^8.6.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
