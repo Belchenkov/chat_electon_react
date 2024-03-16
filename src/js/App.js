@@ -17,6 +17,7 @@ import StoreProvider from "../store/StoreProvider";
 
 import { listenToAuthChanges } from "../actions/auth";
 import { listenToConnectionChanges } from "../actions/app";
+import { checkUserConnection } from '../actions/connection';
 
 const AuthRoute = ({ children, ...rest }) => {
     const user = useSelector(({ auth }) => auth.user);
@@ -44,10 +45,12 @@ const ChatApp = () => {
     useEffect(() => {
         const unsubFromAuth = dispatch(listenToAuthChanges());
         const unsubFromConnection = dispatch(listenToConnectionChanges());
+        const unsubFromUserConnection = dispatch(checkUserConnection());
 
         return () => {
-            //unsubFromAuth();
+            unsubFromAuth();
             unsubFromConnection();
+            unsubFromUserConnection();
         };
     }, [dispatch]);
 
