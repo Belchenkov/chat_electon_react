@@ -13,14 +13,15 @@ export default function ChatUserList({ users = [] }) {
                 {
                     users.map(user => (
                         <li
-                            onClick={() => {}}
-                            className="item">
+                            key={user.uid}
+                            className="item"
+                        >
                             <div className="item-status">
                                 <img src={user.avatar} alt="Retail Admin" />
-                                <span className="status online" />
+                                <span className={`status ${user.state}`} />
                             </div>
                             <p className="name-time">
-                                <span className="name mr-2">{ user.name }</span>
+                                <span className="name mr-2">{ user.username }</span>
                             </p>
                         </li>
                     ))
