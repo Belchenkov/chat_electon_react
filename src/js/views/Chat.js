@@ -7,6 +7,7 @@ import ChatUserList from '../components/ChatUsersList';
 import ChatMessagesList from '../components/ChatMessagesList';
 import ViewTitle from '../components/shared/ViewTitle';
 import LoadingView from '../components/shared/LoadingView';
+import Messenger from '../components/Messenger';
 
 import {
     subscribeToChat,
@@ -49,6 +50,10 @@ function Chat(callback, deps) {
         Object.keys(peopleWatchers.current).forEach(id => peopleWatchers.current[id]());
     }, [peopleWatchers.current]);
 
+    const sendMessage = message => {
+        alert(message);
+    };
+
     if (!activeChat?.id) {
         return <LoadingView message="Loading Chat..." />
     }
@@ -61,6 +66,7 @@ function Chat(callback, deps) {
             <div className="col-9 fh">
                 { activeChat?.name && <ViewTitle text={`Channel: ${activeChat?.name}`} /> }
                 <ChatMessagesList />
+                <Messenger onSubmit={sendMessage} />
             </div>
         </div>
     )
