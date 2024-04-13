@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import { createTimestamp } from '../../utils/time';
+
 const Messenger = ({ onSubmit }) => {
     const [value, setValue] = useState('');
 
@@ -8,9 +10,22 @@ const Messenger = ({ onSubmit }) => {
 
         if (e.key === 'enter') {
             onSubmit();
-            alert(value);
+            sendMessage(value);
             setValue('');
         }
+    };
+
+    const sendMessage = () => {
+        if (value.trim() === '') {
+            return;
+        }
+
+        const message = {
+            content: value.trim(),
+            timestamp: createTimestamp(),
+        };
+
+        onSubmit(message);
     };
 
     return (

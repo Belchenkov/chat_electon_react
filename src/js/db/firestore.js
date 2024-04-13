@@ -9,5 +9,8 @@ const config = {
     messagingSenderId: process.env.FIREBASE_MESSAGING_SENDED_ID,
     appId: process.env.FIREBASE_APP_ID
 };
+
+export const { Timestamp } = firebase.firestore;
+
 // Initialize Firebase
 export default firebase.initializeApp(config).firestore();
